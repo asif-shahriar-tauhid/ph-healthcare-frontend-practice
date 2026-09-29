@@ -1,4 +1,11 @@
-import { environmentManager, QueryClient } from "@tanstack/react-query";
+"use client";
+
+import {
+  environmentManager,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+import type { ReactNode } from "react";
 
 function makeQueryClient() {
   return new QueryClient({
@@ -24,8 +31,11 @@ function getQueryClient() {
   return browserQueryClient;
 }
 
-const queryProvider = () => {
-  return <div></div>;
+const QueryProvider = ({ children }: { children: ReactNode }) => {
+  const queryClient = getQueryClient();
+  return (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
 };
 
-export default queryProvider;
+export default QueryProvider;
