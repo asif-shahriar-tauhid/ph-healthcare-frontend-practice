@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import LoginForm from "@/components/form/login-form";
+import Logo from "@/assets/svg/Logo";
 
 export default function LoginPage() {
   return (
@@ -8,6 +9,7 @@ export default function LoginPage() {
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center gap-2 md:justify-start">
           <Link href="/" className="flex items-center gap-2 font-medium">
+            <Logo />
             PH Healthcare.
           </Link>
         </div>
